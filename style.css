@@ -1,114 +1,336 @@
+/* CONFIGURAÇÕES GERAIS */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+:root {
+  --fundo: #f5faff;
+  --azul-pastel: #dceefa;
+  --texto: #304d66;
+  --texto-suave: #546d83;
+  --borda: #d5e5f1;
+  --botao: #365d7c;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
 body {
-  font-family: "Poppins", sans-serif;
+  background-color: var(--fundo);
+  color: var(--texto);
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.7;
 }
 
+a {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #5887ad;
+  outline-offset: 5px;
+}
+
+h1,
+h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: normal;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(38px, 6vw, 64px);
+  margin-bottom: 16px;
+}
+
+h2 {
+  font-size: clamp(28px, 4vw, 38px);
+  margin-bottom: 20px;
+}
+
+p {
+  color: var(--texto-suave);
+}
+
+.detalhe {
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.secao {
+  max-width: 1000px;
+  margin: 70px auto;
+  padding: 0 24px;
+}
+
+/* CABEÇALHO */
 header {
-  background-color: #424e61;
-  color: white;
-  width: 100%;
-  padding: 20px;
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--borda);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
-.cabecalho-itens {
-  max-width: 1980px;
+.cabecalho {
+  max-width: 1100px;
   margin: 0 auto;
+  padding: 20px 24px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 20px;
-}
-
-.cabecalho-imagem {
-  width: 10%;
-  height: auto;
-}
-
-.titulo_site {
-  padding: 50px;
-  text-align: center;
-  width: 50%;
-  font-size: 30px;
-}
-
-.sociais {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-  gap: 10px;
-  width: 25%;
-  padding-right: 30px;
-}
-
-.banner1 {
-  display: flex;
-  justify-content: center;
-}
-
-.banner1 img {
-  max-width: 100%;
-  height: auto;
-}
-
-.estudante_titulo {
-  padding: 50px;
-  text-align: center;
-}
-
-.estudante-nome {
-  text-align: center;
-}
-
-.estudante-imagem {
-  width: 120px;
-  height: auto;
-}
-
-.estudante-icone {
-  width: 38px;
-  padding: 4px 8px;
-}
-
-.estudante {
-  background-color: #faae43;
-  padding: 24px 0;
-}
-
-.estudante-div {
-  text-align: center;
-  padding: 24px 0;
-}
-
-.estudantes_todos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   gap: 24px;
 }
 
-.escola {
-  background-image: linear-gradient(#40a2e3, #7fc2ef);
+.nome-site {
+  font-family: Georgia, serif;
+  font-size: 28px;
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 26px;
+}
+
+nav a {
+  font-size: 14px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+/* BANNER */
+.banner {
+  max-width: 1100px;
+  min-height: 410px;
+  margin: 28px auto 0;
+  padding: 40px 24px;
+
+  background-color: white;
+  background-image: url("banner-luiza.png");
+  background-position: center;
+  background-size: cover;
+
+  border: 1px solid var(--borda);
+  border-radius: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.banner-texto {
+  max-width: 580px;
+  padding: 28px;
+  background-color: rgba(255, 255, 255, 0.87);
+  border-radius: 20px;
+}
+
+/* SOBRE MIM */
+.sobre {
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  align-items: center;
+  gap: 50px;
+}
+
+.foto-perfil {
+  width: 230px;
+  height: 280px;
+  object-fit: cover;
+  border: 8px solid white;
+  border-radius: 120px 120px 22px 22px;
+}
+
+.foto-vazia {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: linear-gradient(145deg, #e9f5fc, #cde3f3);
+  color: var(--texto-suave);
+  font-size: 14px;
+}
+
+.foto-vazia span {
+  font-family: Georgia, serif;
+  font-size: 65px;
+}
+
+.sobre-texto p + p {
+  margin-top: 16px;
+}
+
+.meus-gostos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+  list-style: none;
+}
+
+.meus-gostos li {
+  padding: 7px 13px;
+  background-color: white;
+  border: 1px solid var(--borda);
+  border-radius: 24px;
+  font-size: 12px;
+}
+
+/* BOTÕES */
+.botao {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: var(--botao);
   color: white;
-  display: block;
-  padding: 24px 0;
+  border: 1px solid var(--botao);
+  border-radius: 30px;
+  font-size: 14px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+.botao:hover:not(:disabled) {
+  background-color: #24465f;
+}
+
+.botao-claro {
+  background-color: white;
+  color: var(--texto);
+  border-color: var(--borda);
+}
+
+.botao-claro:hover:not(:disabled) {
+  background-color: var(--azul-pastel);
+}
+
+.botao:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* MÚSICA */
+.musica {
+  padding: 35px 24px;
+  background-color: var(--azul-pastel);
+  border-radius: 24px;
   text-align: center;
 }
 
-.escola-titulo {
-  padding: 50px;
+.musica .botao {
+  margin-top: 22px;
+}
+
+/* AMIGOS */
+.amigos {
   text-align: center;
 }
 
-.logo_rodape {
-  height: 80px;
-  padding: 12px 0;
+.amigos-grade {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 30px;
 }
 
-.link {
-  color: #ffffff;
+.amigo {
+  padding: 16px;
+  background-color: white;
+  border: 1px solid var(--borda);
+  border-radius: 22px;
+}
+
+.foto-amigo {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 14px;
+}
+
+.amigo h3 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* JOGO */
+.jogo {
+  padding: 36px 24px;
+  background-color: white;
+  border: 1px solid var(--borda);
+  border-radius: 24px;
+  text-align: center;
+}
+
+.placar {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 24px 0 16px;
+}
+
+.area-jogo {
+  position: relative;
+  height: 300px;
+  padding: 20px;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #f2f9ff;
+  background-image: radial-gradient(#bad4e8 1px, transparent 1px);
+  background-size: 22px 22px;
+
+  border: 1px solid var(--borda);
+  border-radius: 18px;
+}
+
+.lacinho {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  background-color: white;
+  border: 1px solid #e0c6d5;
+  border-radius: 50%;
+  font-size: 36px;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.resultado {
+  min-height: 32px;
+  margin: 16px 0;
+}
+
+/* REDES SOCIAIS */
+.redes {
+  text-align: center;
+}
+
+.botoes-redes {
+  display: 
